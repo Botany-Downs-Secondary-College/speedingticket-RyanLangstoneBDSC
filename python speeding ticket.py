@@ -9,10 +9,12 @@ penalties = [{"condition": 0, "penalty_statment": "because he is only just over 
 summary = []
 
 def number_input(phrase):
-    try: 
-        number = int(input(phrase))
-    except:
-        print("needs to be number")
+    number = ""
+    while number == "":
+        try: 
+            number = int(input(phrase))
+        except:
+            print("needs to be a number")
     return  number
 
 def speeder():
@@ -56,8 +58,9 @@ if start == "yes":
     while start == "yes":
         speeder()
         start = input("do you want to enter another speeder\n")
+    print("sumary list...")
     for x in summary:
-        print("sumary list...")
+        
         if isinstance(x["fine"], int):
             print(x["name"] + "has been fined $" + str(x["fine"]))
         else:
